@@ -1,0 +1,9 @@
+<div class="module-list">
+    <h2>Your Enrolled Modules</h2>
+    <ul>
+      <li *ngFor="let module of modules">
+        <h3>{{ module.title }}</h3>
+        <p>{{ module.description }}</p>
+      </li>
+    </ul>
+</div>

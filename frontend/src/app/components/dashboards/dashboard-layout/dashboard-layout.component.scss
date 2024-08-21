@@ -1,0 +1,15 @@
+/* Styles for the dashboard layout */
+header {
+    background-color: #1e3a8a; /* Blue background */
+    color: white;
+  }
+  
+  main {
+    flex: 1; /* Take up remaining space in the flex container */
+  }
+  
+  footer {
+    background-color: #1f2937; /* Dark background for footer */
+    color: white;
+  }
+  

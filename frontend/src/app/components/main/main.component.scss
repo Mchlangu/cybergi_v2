@@ -1,0 +1,6 @@
+main {
+    flex-grow: 1; /* Ensure main takes up the remaining space in the flex container */
+    display: flex;
+    flex-direction: column;
+  }
+  
