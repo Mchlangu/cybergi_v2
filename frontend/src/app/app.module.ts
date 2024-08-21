@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { AdminDashboardComponent } from './components/dashboards/admin-dashboard/admin-dashboard.component';
-import { EmployeeDashboardComponent } from './components/dashboards/employee-dashboard/employee-dashboard.component';
 import { EmployerDashboardComponent } from './components/dashboards/employer-dashboard/employer-dashboard.component';
+import { EmployeeDashboardComponent } from './components/dashboards/employee-dashboard/employee-dashboard.component';
+import { DefaultDashboardComponent } from './components/dashboards/default-dashboard/default-dashboard.component';
+import { HeaderComponent } from './components/template/header/header.component';
+import { MainComponent } from './components/template/main/main.component';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { DashboardLayoutComponent } from './components/dashboards/dashboard-layout/dashboard-layout.component';
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { CreateUsersComponent } from './components/users/create-users/create-users.component';
 import { EditUsersComponent } from './components/users/edit-users/edit-users.component';
@@ -26,60 +37,62 @@ import { CreateQuizComponent } from './components/modules/create-quiz/create-qui
 import { EditQuizComponent } from './components/modules/edit-quiz/edit-quiz.component';
 import { QuizDetailComponent } from './components/modules/quiz-detail/quiz-detail.component';
 import { QuizSubmitComponent } from './components/modules/quiz-submit/quiz-submit.component';
-import { SubscriptionListComponent } from './components/subscriptions/subscription-list/subscription-list.component';
 import { CreateSubscriptionComponent } from './components/subscriptions/create-subscription/create-subscription.component';
 import { EditSubscriptionComponent } from './components/subscriptions/edit-subscription/edit-subscription.component';
 import { EnrollEmployeesComponent } from './components/enroll-employees/enroll-employees.component';
+import { SubscriptionListComponent } from './components/subscriptions/subscription-list/subscription-list.component';
 import { EmployeeModulesComponent } from './components/employee-modules/employee-modules.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
-
-  { path: 'subscription-list', component: SubscriptionListComponent },
-  { path: 'subscription-create', component: CreateSubscriptionComponent },
-  { path: 'subscription-edit/:id', component: EditSubscriptionComponent },
-  { path: 'enroll-employees', component: EnrollEmployeesComponent },
-
-  { path: 'employee-modules', component: EmployeeModulesComponent },
-
-  { path: 'quiz-list', component: QuizListComponent },
-  { path: 'quiz-create', component: CreateQuizComponent },
-  { path: 'quiz-edit/:id', component: EditQuizComponent },
-  { path: 'quiz-detail/:id', component: QuizDetailComponent },
-  { path: 'quiz-submit/:id', component: QuizSubmitComponent },
-
-  { path: 'module-list', component: ModuleListComponent },
-  { path: 'create-module', component: CreateModuleComponent },
-  { path: 'edit-module/:id', component: EditModuleComponent },
-  { path: 'module-detail/:id', component: ModuleDetailComponent },
-
-  { path: 'employee-list', component: EmployeeListComponent },
-  { path: 'create-employee', component: CreateEmployeeComponent },
-  { path: 'edit-employee/:employeeId', component: EditEmployeeComponent },
-  { path: 'employee-detail/:employeeId', component: EmployeeDetailComponent },
-
-  { path: 'lesson-list', component: LessonListComponent },
-  { path: 'create-lesson', component: CreateLessonComponent },
-  { path: 'lesson-edit/:id', component:EditLessonComponent},
-  { path: 'lesson-detail/:id', component: LessonDetailComponent },
-
-  { path: 'user-list', component: UserListComponent },
-  { path: 'create-user', component: CreateUsersComponent},
-  { path: 'edit-user/:id', component: EditUsersComponent },
-  { path: 'user-detail/:id', component: UserDetailComponent },
-
-  { path: 'admin-dashboard', component: AdminDashboardComponent},
-  { path: 'employee-dashboard', component: EmployeeDashboardComponent},
-  { path: 'employer-dashboard', component: EmployerDashboardComponent},
-
-  { path: 'signin', component: SignInComponent },
-  { path: 'signup', component:SignUpComponent},
-  { path: '**', redirectTo: '/signin'}
-];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  declarations: [
+    AppComponent,
+    SignInComponent,
+    SignUpComponent,
+    AdminDashboardComponent,
+    EmployerDashboardComponent,
+    EmployeeDashboardComponent,
+    DefaultDashboardComponent,
+    HeaderComponent,
+    MainComponent,
+    FooterComponent,
+    DashboardLayoutComponent,
+    UserListComponent,
+    CreateUsersComponent,
+    EditUsersComponent,
+    UserDetailComponent,
+    EmployeeListComponent,
+    CreateEmployeeComponent,
+    EditEmployeeComponent,
+    EmployeeDetailComponent,
+    ModuleListComponent,
+    CreateModuleComponent,
+    EditModuleComponent,
+    ModuleDetailComponent,
+    LessonListComponent,
+    CreateLessonComponent,
+    LessonDetailComponent,
+    EditLessonComponent,
+    QuizListComponent,
+    CreateQuizComponent,
+    EditQuizComponent,
+    QuizDetailComponent,
+    QuizSubmitComponent,
+    SubscriptionListComponent,
+    CreateSubscriptionComponent,
+    EditSubscriptionComponent,
+    EnrollEmployeesComponent,
+    EmployeeModulesComponent,
+
+  ],
+  imports: [
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot([])
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppRoutingModule { }
+export class AppModule { }
 
